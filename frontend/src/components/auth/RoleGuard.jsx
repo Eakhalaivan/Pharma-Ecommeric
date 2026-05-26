@@ -26,7 +26,7 @@ export default function RoleGuard({ allowedRoles, children, fallback }) {
   // If user is authenticated but not authorized for this specific route,
   // redirect them to their active role's dashboard or a fallback
   if (user) {
-    const fallbackRoute = fallback || DASHBOARD_ROUTES[activeRole] || '/dashboard/admin';
+    const fallbackRoute = fallback || DASHBOARD_ROUTES[activeRole] || '/pms/dashboard/admin';
     console.warn('RoleGuard: Access denied.', 'User roles:', userRoles, 'Required:', allowedRoles);
     
     // Guard against infinite redirect if already at fallback

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Building2, KeyRound, User as UserIcon, Lock, Loader2 } from 'lucide-react';
+import { Building2, KeyRound, User as UserIcon, Lock, Loader2, Eye, EyeOff } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { DASHBOARD_ROUTES } from '../config/roles.config';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('password'); // Hardcoded default for demo
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const { login, isAuthenticated, activeRole } = useAuth();
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ export default function LoginPage() {
   React.useEffect(() => {
     console.log('LoginPage: Auth state changed', { isAuthenticated, activeRole });
     if (isAuthenticated && activeRole) {
-      const target = DASHBOARD_ROUTES[activeRole] || '/dashboard/pharmacy';
+      const target = DASHBOARD_ROUTES[activeRole] || '/pms/dashboard/pharmacy';
       console.log('LoginPage: Already authenticated, redirecting to', target);
       navigate(target, { replace: true });
     }
@@ -38,7 +39,7 @@ export default function LoginPage() {
       // Imperatively navigate right away — don't rely solely on the useEffect
       // since state updates may already be settled by the time we get here.
       const storedRole = localStorage.getItem('activeRole');
-      const target = (storedRole && DASHBOARD_ROUTES[storedRole]) || '/dashboard/pharmacy';
+      const target = (storedRole && DASHBOARD_ROUTES[storedRole]) || '/pms/dashboard/pharmacy';
       navigate(target, { replace: true });
     } catch (error) {
       toast.error(error.message || 'Login failed. Please check your credentials.');
@@ -86,13 +87,22 @@ export default function LoginPage() {
               <input
                 id="password"
                 name="password"
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 required
-                className="block w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent transition-all sm:text-sm"
+                className="block w-full pl-12 pr-12 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent transition-all sm:text-sm"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-primary transition-colors"
+                tabIndex={-1}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+              </button>
             </div>
           </div>
 

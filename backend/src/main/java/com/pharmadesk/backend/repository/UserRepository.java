@@ -11,6 +11,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @org.springframework.data.jpa.repository.EntityGraph(attributePaths = {"roles"})
     java.util.Optional<User> findByUsername(String username);
     
+    @org.springframework.data.jpa.repository.EntityGraph(attributePaths = {"roles"})
+    java.util.Optional<User> findByEmployeeId(String employeeId);
+
     long countByStatus(String status);
     
     @org.springframework.data.jpa.repository.EntityGraph(attributePaths = {"roles"})

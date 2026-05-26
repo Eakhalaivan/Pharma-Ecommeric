@@ -18,6 +18,10 @@ backend/mvnw.cmd
 
 # OS
 .DS_Store
+*.log
+backend/run.log
+maven_output.log
+test_output.txt
 
 # Test scratch files
 backend/src/test/java/com/pharmadesk/backend/HashTest.java

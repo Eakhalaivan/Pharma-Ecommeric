@@ -40,20 +40,20 @@ export const ROLE_COLORS = {
 };
 
 export const DASHBOARD_ROUTES = {
-  [ROLES.SYSTEM_ADMIN]: '/dashboard/admin',
-  [ROLES.SUPERVISOR]: '/dashboard/supervisor',
-  [ROLES.SENIOR_MEDICAL_STAFF]: '/dashboard/senior-medical',
-  [ROLES.MEDICAL_STAFF]: '/dashboard/medical',
-  [ROLES.BILLING_STAFF]: '/dashboard/billing',
-  [ROLES.PHARMACY_STAFF]: '/dashboard/pharmacy',
-  [ROLES.RECEPTIONIST]: '/dashboard/reception',
-  [ROLES.AUDIT_COMPLIANCE]: '/dashboard/audit',
-  [ROLES.LAB_TECHNICIAN]: '/dashboard/lab',
-  [ROLES.STOREKEEPER]: '/dashboard/store',
+  [ROLES.SYSTEM_ADMIN]: '/pms/dashboard/admin',
+  [ROLES.SUPERVISOR]: '/pms/dashboard/supervisor',
+  [ROLES.SENIOR_MEDICAL_STAFF]: '/pms/dashboard/senior-medical',
+  [ROLES.MEDICAL_STAFF]: '/pms/dashboard/medical',
+  [ROLES.BILLING_STAFF]: '/pms/dashboard/billing',
+  [ROLES.PHARMACY_STAFF]: '/pms/dashboard/pharmacy',
+  [ROLES.RECEPTIONIST]: '/pms/dashboard/reception',
+  [ROLES.AUDIT_COMPLIANCE]: '/pms/dashboard/audit',
+  [ROLES.LAB_TECHNICIAN]: '/pms/dashboard/lab',
+  [ROLES.STOREKEEPER]: '/pms/dashboard/store',
   // Legacy keys (safety net)
-  'ADMIN':               '/dashboard/admin',
-  'MEDICINE_USER':       '/dashboard/pharmacy',
-  'BILLING_USER':        '/dashboard/billing',
+  'ADMIN':               '/pms/dashboard/admin',
+  'MEDICINE_USER':       '/pms/dashboard/pharmacy',
+  'BILLING_USER':        '/pms/dashboard/billing',
 };
 
 export const MODULE_PERMISSIONS = {

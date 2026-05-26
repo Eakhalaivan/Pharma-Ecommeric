@@ -42,6 +42,26 @@ public class Medicine extends BaseEntity {
     @JsonProperty("reorderLevel")
     private Integer reorderLevel = 10;
 
+    @Column(columnDefinition = "TEXT")
+    private String description;
+
+    private String image;
+
+    @Column(name = "prescription_required")
+    private boolean prescriptionRequired = false;
+
+    @Column(name = "purchase_price")
+    private BigDecimal purchasePrice = BigDecimal.ZERO;
+
+    @Column(name = "avg_rating")
+    private Double avgRating = 0.0;
+
+    @Column(name = "review_count")
+    private Integer reviewCount = 0;
+
+    @Column(name = "is_active")
+    private boolean isActive = true;
+
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
@@ -61,4 +81,19 @@ public class Medicine extends BaseEntity {
     public void setTaxPercentage(BigDecimal taxPercentage) { this.taxPercentage = taxPercentage; }
     public Integer getReorderLevel() { return reorderLevel; }
     public void setReorderLevel(Integer reorderLevel) { this.reorderLevel = reorderLevel; }
+
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+    public String getImage() { return image; }
+    public void setImage(String image) { this.image = image; }
+    public boolean isPrescriptionRequired() { return prescriptionRequired; }
+    public void setPrescriptionRequired(boolean prescriptionRequired) { this.prescriptionRequired = prescriptionRequired; }
+    public BigDecimal getPurchasePrice() { return purchasePrice; }
+    public void setPurchasePrice(BigDecimal purchasePrice) { this.purchasePrice = purchasePrice; }
+    public Double getAvgRating() { return avgRating; }
+    public void setAvgRating(Double avgRating) { this.avgRating = avgRating; }
+    public Integer getReviewCount() { return reviewCount; }
+    public void setReviewCount(Integer reviewCount) { this.reviewCount = reviewCount; }
+    public boolean isActive() { return isActive; }
+    public void setActive(boolean active) { isActive = active; }
 }

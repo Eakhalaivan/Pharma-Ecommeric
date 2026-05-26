@@ -8,6 +8,8 @@ export default {
     extend: {
       colors: {
         primary: '#2563eb', // Main buttons, accents
+        secondary: '#0f172a', // Dark slate for text, headings, secondary actions
+        accent: '#2563eb',
         success: '#16a34a',
         warning: '#d97706',
         danger: '#dc2626',

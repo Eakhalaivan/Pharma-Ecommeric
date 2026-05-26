@@ -48,4 +48,10 @@ public interface MedicineStockRepository extends JpaRepository<MedicineStock, Lo
     List<MedicineStock> findByMedicineIdAndDeletedFalse(Long medicineId);
     
     List<MedicineStock> findByExpiryDateBefore(java.time.LocalDate date);
+
+    @Query("SELECT COALESCE(SUM(s.quantityAvailable), 0) FROM MedicineStock s WHERE s.medicine.id = :medicineId AND s.deleted = false AND s.expiryDate >= CURRENT_DATE")
+    Integer sumAvailableByMedicineId(@Param("medicineId") Long medicineId);
+
+    @Query("SELECT s.sellingRate FROM MedicineStock s WHERE s.medicine.id = :medicineId AND s.deleted = false AND s.expiryDate >= CURRENT_DATE ORDER BY s.expiryDate ASC")
+    List<BigDecimal> findSellingRatesByMedicine(@Param("medicineId") Long medicineId);
 }

@@ -33,29 +33,29 @@ import {
 } from 'lucide-react';
 
 const allNavItems = [
-  { name: 'Dashboard', path: '/', icon: LayoutDashboard },
-  { name: 'Medicine Master', path: '/medicines', icon: Pill, roles: [ROLES.SYSTEM_ADMIN, ROLES.PHARMACY_STAFF] },
-  { name: 'Stock Management', path: '/stocks', icon: Box, roles: [ROLES.SYSTEM_ADMIN, ROLES.STOREKEEPER] },
-  { name: 'Pharmacy Sales', path: '/sales', icon: ShoppingCart, roles: [ROLES.SYSTEM_ADMIN, ROLES.BILLING_STAFF] },
-  { name: 'Medicine Returns', path: '/returns', icon: RotateCcw, roles: [ROLES.SYSTEM_ADMIN, ROLES.PHARMACY_STAFF] },
-  { name: 'Medicine Credit Bills', path: '/credit-bills', icon: CreditCard, roles: [ROLES.SYSTEM_ADMIN, ROLES.BILLING_STAFF] },
-  { name: 'Direct Pharmacy Sales', path: '/direct-sales', icon: Store, roles: [ROLES.SYSTEM_ADMIN, ROLES.BILLING_STAFF] },
-  { name: 'Direct Medicine Returns', path: '/direct-returns', icon: Undo2, roles: [ROLES.SYSTEM_ADMIN, ROLES.PHARMACY_STAFF] },
-  { name: 'Return Worklists', path: '/return-worklists', icon: ClipboardList, roles: [ROLES.SYSTEM_ADMIN, ROLES.SUPERVISOR] },
-  { name: 'Dispense Worklists', path: '/dispense-worklists', icon: Syringe, roles: [ROLES.SYSTEM_ADMIN, ROLES.MEDICAL_STAFF, ROLES.SENIOR_MEDICAL_STAFF] },
-  { name: 'Pending Prescriptions', path: '/pending-prescriptions', icon: Stethoscope, roles: [ROLES.SYSTEM_ADMIN, ROLES.MEDICAL_STAFF, ROLES.SENIOR_MEDICAL_STAFF] },
-  { name: 'Pending Indent Pres.', path: '/pending-indents', icon: ListTodo, roles: [ROLES.SYSTEM_ADMIN, ROLES.PHARMACY_STAFF] },
-  { name: 'Pending Pharmacy Rep.', path: '/pending-replacement', icon: RefreshCw, roles: [ROLES.SYSTEM_ADMIN, ROLES.PHARMACY_STAFF] },
-  { name: 'Pending Rep. Returns', path: '/pending-replacement-returns', icon: Box, roles: [ROLES.SYSTEM_ADMIN, ROLES.PHARMACY_STAFF] },
-  { name: 'Consolidated Bills', path: '/consolidated-bills', icon: Receipt, roles: [ROLES.SYSTEM_ADMIN, ROLES.BILLING_STAFF] },
-  { name: 'Pharmacy Advances', path: '/advances', icon: Banknote, roles: [ROLES.SYSTEM_ADMIN, ROLES.BILLING_STAFF] },
-  { name: 'Pharmacy Clearance', path: '/clearance', icon: FileCheck, roles: [ROLES.SYSTEM_ADMIN, ROLES.BILLING_STAFF] },
-  { name: 'Medicine Credit Returns', path: '/credit-returns', icon: ArrowLeftRight, roles: [ROLES.SYSTEM_ADMIN, ROLES.PHARMACY_STAFF] },
-  { name: 'Product Sales Perf.', path: '/performance', icon: BarChart3, roles: [ROLES.SYSTEM_ADMIN, ROLES.SUPERVISOR, ROLES.AUDIT_COMPLIANCE] },
-  { name: 'Suppliers', path: '/suppliers', icon: Truck, roles: [ROLES.SYSTEM_ADMIN, ROLES.STOREKEEPER] },
-  { name: 'Patients', path: '/patients', icon: Users, roles: [ROLES.SYSTEM_ADMIN, ROLES.BILLING_STAFF, ROLES.RECEPTIONIST] },
-  { name: 'Reports', path: '/reports', icon: FileText, roles: [ROLES.SYSTEM_ADMIN, ROLES.SUPERVISOR] },
-  { name: 'User Management', path: '/users', icon: Settings, roles: [ROLES.SYSTEM_ADMIN] },
+  { name: 'Dashboard', path: '/pms', icon: LayoutDashboard },
+  { name: 'Medicine Master', path: '/pms/medicines', icon: Pill, roles: [ROLES.SYSTEM_ADMIN, ROLES.PHARMACY_STAFF] },
+  { name: 'Stock Management', path: '/pms/stocks', icon: Box, roles: [ROLES.SYSTEM_ADMIN, ROLES.STOREKEEPER] },
+  { name: 'Pharmacy Sales', path: '/pms/sales', icon: ShoppingCart, roles: [ROLES.SYSTEM_ADMIN, ROLES.BILLING_STAFF] },
+  { name: 'Medicine Returns', path: '/pms/returns', icon: RotateCcw, roles: [ROLES.SYSTEM_ADMIN, ROLES.PHARMACY_STAFF] },
+  { name: 'Medicine Credit Bills', path: '/pms/credit-bills', icon: CreditCard, roles: [ROLES.SYSTEM_ADMIN, ROLES.BILLING_STAFF] },
+  { name: 'Direct Pharmacy Sales', path: '/pms/direct-sales', icon: Store, roles: [ROLES.SYSTEM_ADMIN, ROLES.BILLING_STAFF] },
+  { name: 'Direct Medicine Returns', path: '/pms/direct-returns', icon: Undo2, roles: [ROLES.SYSTEM_ADMIN, ROLES.PHARMACY_STAFF] },
+  { name: 'Return Worklists', path: '/pms/return-worklists', icon: ClipboardList, roles: [ROLES.SYSTEM_ADMIN, ROLES.SUPERVISOR] },
+  { name: 'Dispense Worklists', path: '/pms/dispense-worklists', icon: Syringe, roles: [ROLES.SYSTEM_ADMIN, ROLES.MEDICAL_STAFF, ROLES.SENIOR_MEDICAL_STAFF] },
+  { name: 'Pending Prescriptions', path: '/pms/pending-prescriptions', icon: Stethoscope, roles: [ROLES.SYSTEM_ADMIN, ROLES.MEDICAL_STAFF, ROLES.SENIOR_MEDICAL_STAFF] },
+  { name: 'Pending Indent Pres.', path: '/pms/pending-indents', icon: ListTodo, roles: [ROLES.SYSTEM_ADMIN, ROLES.PHARMACY_STAFF] },
+  { name: 'Pending Pharmacy Rep.', path: '/pms/pending-replacement', icon: RefreshCw, roles: [ROLES.SYSTEM_ADMIN, ROLES.PHARMACY_STAFF] },
+  { name: 'Pending Rep. Returns', path: '/pms/pending-replacement-returns', icon: Box, roles: [ROLES.SYSTEM_ADMIN, ROLES.PHARMACY_STAFF] },
+  { name: 'Consolidated Bills', path: '/pms/consolidated-bills', icon: Receipt, roles: [ROLES.SYSTEM_ADMIN, ROLES.BILLING_STAFF] },
+  { name: 'Pharmacy Advances', path: '/pms/advances', icon: Banknote, roles: [ROLES.SYSTEM_ADMIN, ROLES.BILLING_STAFF] },
+  { name: 'Pharmacy Clearance', path: '/pms/clearance', icon: FileCheck, roles: [ROLES.SYSTEM_ADMIN, ROLES.BILLING_STAFF] },
+  { name: 'Medicine Credit Returns', path: '/pms/credit-returns', icon: ArrowLeftRight, roles: [ROLES.SYSTEM_ADMIN, ROLES.PHARMACY_STAFF] },
+  { name: 'Product Sales Perf.', path: '/pms/performance', icon: BarChart3, roles: [ROLES.SYSTEM_ADMIN, ROLES.SUPERVISOR, ROLES.AUDIT_COMPLIANCE] },
+  { name: 'Suppliers', path: '/pms/suppliers', icon: Truck, roles: [ROLES.SYSTEM_ADMIN, ROLES.STOREKEEPER] },
+  { name: 'Patients', path: '/pms/patients', icon: Users, roles: [ROLES.SYSTEM_ADMIN, ROLES.BILLING_STAFF, ROLES.RECEPTIONIST] },
+  { name: 'Reports', path: '/pms/reports', icon: FileText, roles: [ROLES.SYSTEM_ADMIN, ROLES.SUPERVISOR] },
+  { name: 'User Management', path: '/pms/users', icon: Settings, roles: [ROLES.SYSTEM_ADMIN] },
 ];
 
 export default function Sidebar() {
@@ -93,7 +93,7 @@ export default function Sidebar() {
   });
 
   const getDashboardPath = () => {
-    return DASHBOARD_ROUTES[activeRole] || '/dashboard/pharmacy';
+    return DASHBOARD_ROUTES[activeRole] || '/pms/dashboard/pharmacy';
   };
 
   return (
@@ -137,7 +137,7 @@ export default function Sidebar() {
                     onClick={() => {
                       switchRole(role);
                       setIsRoleDropdownOpen(false);
-                      navigate(DASHBOARD_ROUTES[role] || '/');
+                      navigate(DASHBOARD_ROUTES[role] || '/pms');
                     }}
                     className={cn(
                       "w-full px-3 py-2 text-left text-sm transition-colors",
@@ -156,8 +156,8 @@ export default function Sidebar() {
       <nav className="flex-1 overflow-y-auto py-4 px-4 space-y-1 custom-scrollbar">
         <p className="px-3 text-[10px] font-bold text-blue-300 uppercase tracking-widest mb-4 opacity-50">Main Modules</p>
         {navItems.map((item) => {
-          const path = item.path === '/' ? getDashboardPath() : item.path;
-          const isActive = location.pathname === path || (item.path === '/' && location.pathname.startsWith('/dashboard'));
+          const path = item.path === '/pms' ? getDashboardPath() : item.path;
+          const isActive = location.pathname === path || (item.path === '/pms' && location.pathname.startsWith('/pms/dashboard'));
           
           return (
             <NavLink

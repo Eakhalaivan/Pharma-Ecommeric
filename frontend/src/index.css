@@ -1,13 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
 
 @import "tailwindcss";
 
 @theme {
   --color-primary: #1e3a8a;
+  --color-secondary: #0f172a;
   --color-accent: #2563eb;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
   --color-sidebarBg: #0a1972;
   --color-background: #f1f5f9;
   --font-sans: 'Inter', sans-serif;
+  --font-cormorant: 'Cormorant Garamond', serif;
+  --font-dmsans: 'DM Sans', sans-serif;
 }
 
 @layer base {

@@ -54,8 +54,12 @@ public class SecurityConfig {
             )
             .authorizeHttpRequests(auth -> auth
                 // Public endpoints
-                .requestMatchers("/api/auth/login", "/api/auth/register", "/api/auth/logout").permitAll()
+                .requestMatchers("/api/auth/login", "/api/auth/register", "/api/auth/logout", "/api/v1/auth/**").permitAll()
                 .requestMatchers("/actuator/**").permitAll()
+                .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/v1/medicines", "/api/v1/medicines/**").permitAll()
+                .requestMatchers(org.springframework.http.HttpMethod.POST, "/api/v1/medicines", "/api/v1/medicines/**").hasAnyAuthority("ROLE_SYSTEM_ADMIN", "ROLE_PHARMACY_STAFF", "ROLE_STOREKEEPER", "ROLE_MEDICINE_MANAGER")
+                .requestMatchers(org.springframework.http.HttpMethod.PUT, "/api/v1/medicines", "/api/v1/medicines/**").hasAnyAuthority("ROLE_SYSTEM_ADMIN", "ROLE_PHARMACY_STAFF", "ROLE_STOREKEEPER", "ROLE_MEDICINE_MANAGER")
+                .requestMatchers(org.springframework.http.HttpMethod.DELETE, "/api/v1/medicines", "/api/v1/medicines/**").hasAnyAuthority("ROLE_SYSTEM_ADMIN", "ROLE_PHARMACY_STAFF", "ROLE_STOREKEEPER", "ROLE_MEDICINE_MANAGER")
 
                 // Admin-only endpoints
                 .requestMatchers("/api/auth/users", "/api/auth/users/**").hasAuthority("ROLE_SYSTEM_ADMIN")
@@ -103,6 +107,12 @@ public class SecurityConfig {
         java.util.Set<String> origins = new java.util.LinkedHashSet<>();
         origins.add("http://localhost:5173");
         origins.add("http://127.0.0.1:5173");
+        origins.add("http://localhost:5174");
+        origins.add("http://127.0.0.1:5174");
+        origins.add("http://localhost:5175");
+        origins.add("http://127.0.0.1:5175");
+        origins.add("http://localhost:3000");
+        origins.add("http://127.0.0.1:3000");
         if (allowedOrigin != null && !allowedOrigin.isBlank()) {
             origins.add(allowedOrigin);
         }

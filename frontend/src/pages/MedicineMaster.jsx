@@ -27,7 +27,12 @@ export default function MedicineMaster() {
     unit: 'Strip',
     hsnCode: '',
     taxPercentage: 12.0,
-    reorderLevel: 10
+    reorderLevel: 10,
+    description: '',
+    image: '',
+    prescriptionRequired: false,
+    purchasePrice: 0.0,
+    active: true
   });
 
   useEffect(() => {
@@ -94,7 +99,12 @@ export default function MedicineMaster() {
       unit: 'Strip',
       hsnCode: '',
       taxPercentage: 12.0,
-      reorderLevel: 10
+      reorderLevel: 10,
+      description: '',
+      image: '',
+      prescriptionRequired: false,
+      purchasePrice: 0.0,
+      active: true
     });
     setIsModalOpen(true);
   };
@@ -111,7 +121,12 @@ export default function MedicineMaster() {
       unit: medicine.unit || 'Strip',
       hsnCode: medicine.hsnCode || '',
       taxPercentage: medicine.taxPercentage || 12.0,
-      reorderLevel: medicine.reorderLevel || 10
+      reorderLevel: medicine.reorderLevel || 10,
+      description: medicine.description || '',
+      image: medicine.image || '',
+      prescriptionRequired: medicine.prescriptionRequired || false,
+      purchasePrice: medicine.purchasePrice || 0.0,
+      active: medicine.isActive !== undefined ? medicine.isActive : (medicine.active !== undefined ? medicine.active : true)
     });
     setIsModalOpen(true);
   };
@@ -307,6 +322,54 @@ export default function MedicineMaster() {
                   className="w-full px-4 py-2.5 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-primary/20 bg-white font-bold" 
                 />
               </div>
+              <div className="space-y-1.5">
+                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-1">Default Purchase Price</label>
+                <input 
+                  type="number" 
+                  value={formData.purchasePrice}
+                  onChange={(e) => setFormData({...formData, purchasePrice: parseFloat(e.target.value) || 0.0})}
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-primary/20 bg-white font-bold" 
+                />
+              </div>
+           </div>
+           <div className="space-y-1.5">
+              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-1">E-Commerce Product Image URL</label>
+              <input 
+                type="text" 
+                value={formData.image}
+                onChange={(e) => setFormData({...formData, image: e.target.value})}
+                placeholder="https://example.com/image.jpg" 
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-primary/20 bg-white" 
+              />
+           </div>
+           <div className="space-y-1.5 md:col-span-2">
+              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-1">E-Commerce Product Description</label>
+              <textarea 
+                value={formData.description}
+                onChange={(e) => setFormData({...formData, description: e.target.value})}
+                placeholder="Detailed description of the medicine for online store customers..." 
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-primary/20 bg-white min-h-[80px]" 
+              />
+           </div>
+           <div className="flex items-center gap-6 py-2 px-1">
+              <label className="flex items-center gap-2 cursor-pointer select-none">
+                 <input 
+                    type="checkbox" 
+                    checked={formData.prescriptionRequired} 
+                    onChange={(e) => setFormData({...formData, prescriptionRequired: e.target.checked})}
+                    className="w-4 h-4 text-primary border-slate-200 rounded focus:ring-primary"
+                 />
+                 <span className="text-xs font-bold text-slate-600 uppercase tracking-wide">Prescription Required</span>
+              </label>
+              <label className="flex items-center gap-2 cursor-pointer select-none">
+                 <input 
+                    type="checkbox" 
+                    checked={formData.active} 
+                    onChange={(e) => setFormData({...formData, active: e.target.checked})}
+                    className="w-4 h-4 text-primary border-slate-200 rounded focus:ring-primary"
+                 />
+                 <span className="text-xs font-bold text-slate-600 uppercase tracking-wide">Active in Catalog</span>
+              </label>
            </div>
         </div>
       </AppModal>

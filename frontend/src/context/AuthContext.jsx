@@ -165,12 +165,36 @@ export function AuthProvider({ children }) {
     });
   }, []);
 
+  const loginAsCustomer = useCallback((name, email) => {
+    const userData = {
+      id: 99999,
+      name: name || 'Valued Customer',
+      username: email || 'customer@example.com',
+      email: email || 'customer@example.com',
+      branch: 'E-Commerce Online Store',
+      isCustomer: true
+    };
+    localStorage.setItem('user', JSON.stringify(userData));
+    localStorage.setItem('roles', JSON.stringify(['CUSTOMER']));
+    localStorage.setItem('activeRole', 'CUSTOMER');
+    localStorage.setItem('token', 'mock-customer-token');
+    
+    setAuthState({
+      user: userData,
+      roles: ['CUSTOMER'],
+      activeRole: 'CUSTOMER',
+      isAuthenticated: true,
+      loading: false
+    });
+  }, []);
+
   const contextValue = React.useMemo(() => ({
     ...authState,
     login,
+    loginAsCustomer,
     logout,
     switchRole
-  }), [authState, login, logout, switchRole]);
+  }), [authState, login, loginAsCustomer, logout, switchRole]);
 
   return (
     <AuthContext.Provider value={contextValue}>
